@@ -1,0 +1,9 @@
+LIBRARY
+EXPORTS
+	SetStartupInfoW
+	OpenW
+	GetGlobalInfoW
+	GetPluginInfoW
+	ExitFARW
+	ProcessEditorEventW
+	ProcessEditorInputW

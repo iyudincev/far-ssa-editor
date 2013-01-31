@@ -18,8 +18,8 @@
 #include "ver.h"
 
 
-bool needUninitialize;
-std::map<intptr_t, EditorContext> *editors;
+static bool comInitialized;
+static std::map<intptr_t, EditorContext> *editors;
 
 
 int __cdecl main() {}
@@ -31,14 +31,14 @@ void WINAPI SetStartupInfoW(const PluginStartupInfo* Info)
 		lng::init();
 	}
 	farManager = *Info;
-	needUninitialize = false;
+	comInitialized = false;
 	switch (HRESULT hr = CoInitialize(0))
 	{
 	case S_OK: // success
 	case S_FALSE: // success -- A different plugin has already
 		// initialized COM on this thread in single-thread
 		// apartment mode
-		needUninitialize = true;
+		comInitialized = true;
 	case RPC_E_CHANGED_MODE: // success -- A different plugin
 		// has already initialized COM on this thread in
 		// multithread apartment mode
@@ -50,13 +50,13 @@ void WINAPI SetStartupInfoW(const PluginStartupInfo* Info)
 
 void WINAPI GetGlobalInfoW(GlobalInfo *Info)
 {
-  Info->StructSize = sizeof(GlobalInfo);
-  Info->MinFarVersion = MAKEFARVERSION(3,0,0,2927,VS_RELEASE);
-  Info->Version = MAKEFARVERSION(VER_MAJOR,VER_MINOR,0,VER_BUILD,VS_ALPHA);
-  Info->Guid = PluginId;
-  Info->Title = L"SSA Editor";
-  Info->Description = L"SSA Subtitles Editor";
-  Info->Author = _T(VER_AUTHOR);
+	Info->StructSize = sizeof(GlobalInfo);
+	Info->MinFarVersion = MAKEFARVERSION(3, 0, 0, 2927, VS_RELEASE);
+	Info->Version = MAKEFARVERSION(VER_MAJOR, VER_MINOR, VER_REVISION, 0, VS_RELEASE);
+	Info->Guid = PluginId;
+	Info->Title = L"FarSSA";
+	Info->Description = L"SSA Editor";
+	Info->Author = _T(VER_AUTHOR);
 }
 
 void WINAPI GetPluginInfoW(PluginInfo* Info)
@@ -98,7 +98,7 @@ void WINAPI ExitFARW(ExitInfo* Info)
 	editors->clear();
 	lng::finalize();
 	delete editors;
-	if (needUninitialize)
+	if (comInitialized)
 		CoUninitialize();
 }
 

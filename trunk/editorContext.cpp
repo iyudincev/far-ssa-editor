@@ -377,10 +377,10 @@ void EditorContext::editPhrase()
 
 
 	HANDLE hDlg = farManager.dialogInit(&EditPhraseId, &items[0], items.size(),
-		editorWidth + 6, static_cast<int>(items.size()) + 2, help::editPhrase);
+		editorWidth + 6, static_cast<intptr_t>(items.size()) + 2, help::editPhrase);
 	if (-1 != farManager.dialogRun(hDlg)) {
 		phrase.clear();
-		int iDlgItem = 0;
+		intptr_t iDlgItem = 0;
 		for (std::vector<FarDialogItem>::const_iterator i = items.begin();
 			i != items.end(); ++i, ++iDlgItem)
 		{
@@ -1276,7 +1276,7 @@ void EditorContext::reloadSubtitles()
 	SendMessage(hwndPlayer_, WM_COMMAND, ID_SUBTITLES_RELOAD, 0);
 }
 
-int EditorContext::processEditorInput(const INPUT_RECORD& rec)
+intptr_t EditorContext::processEditorInput(const INPUT_RECORD& rec)
 {
 	static const DWORD SHIFT_MASK =
 		LEFT_ALT_PRESSED   |

@@ -11,12 +11,12 @@
 class LanguageString
 {
 public:
-	explicit LanguageString(int id);
+	explicit LanguageString(intptr_t id);
 
 	const wchar_t* get() const;
 	operator const wchar_t*() const;
 private:
-	int id_;
+	intptr_t id_;
 };
 
 FarMenuItem menuItem(const wchar_t* title, bool selected, bool checked);
@@ -84,7 +84,7 @@ public:
 
 	intptr_t inputBox(const GUID* id,
 		const wchar_t* title, const wchar_t* prompt, const wchar_t* history,
-		const wchar_t* srcText, wchar_t* destText, int destLength,
+		const wchar_t* srcText, wchar_t* destText, size_t destLength,
 		const wchar_t* help,
 		DWORD flags);
 
@@ -104,26 +104,26 @@ public:
 		intptr_t* breakCode = 0);
 	intptr_t dialog(const GUID* id,
 		FarDialogItem* items, size_t itemCount,
-		int width, int height,
+		intptr_t width, intptr_t height,
 		const wchar_t* help = 0);
 	intptr_t dialogEx(const GUID* id,
 		FarDialogItem* items, size_t itemCount,
-		int width, INT height,
+		intptr_t width, intptr_t height,
 		const wchar_t* help,
 		FARWINDOWPROC dlgProc);
 
 	HANDLE dialogInit(const GUID* id,
 		FarDialogItem* items, size_t itemCount,
-		int width, int height,
+		intptr_t width, intptr_t height,
 		const wchar_t* help = 0);
 	intptr_t dialogRun(HANDLE hDlg);
 	void dialogFree(HANDLE hDlg);
-	std::wstring getDlgItemText(HANDLE hDlg, int id);
+	std::wstring getDlgItemText(HANDLE hDlg, intptr_t id);
 
 	intptr_t setTextPtr(HANDLE hDlg, intptr_t itemId, const wchar_t* text);
 	intptr_t defDlgProc(HANDLE hDlg, intptr_t Msg, intptr_t Param1, void *Param2);
 
-	const wchar_t* getMsg(int id) const;
+	const wchar_t* getMsg(intptr_t id) const;
 
 	void showMessage(const wchar_t* text, const wchar_t* title = L"") const;
 	void showMessage(const std::string& s, const wchar_t* title = L"") const;

@@ -91,7 +91,7 @@ std::string getPrefix(const Line& line)
 }
 
 template <typename Line>
-std::string getField(const Line& line,int field)
+std::string getField(const Line& line, size_t field)
 {
 	if (!isDialogue(line)) return ""; // not Dialogue
 	// FIXME: assumes default Dialogue format

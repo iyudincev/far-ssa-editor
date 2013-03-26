@@ -33,7 +33,7 @@ public:
 		if (!FormatMessageA(FORMAT_MESSAGE_FROM_SYSTEM, 0, code_, 0,
 			cur, static_cast<DWORD>(end - cur), 0))
 		{
-			_snprintf(cur, end - cur - 1, "Error code %d", code_);
+			_snprintf(cur, end - cur - 1, "Error code %u", code_);
 			*(end - 1) = 0;
 		}
 

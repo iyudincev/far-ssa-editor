@@ -172,7 +172,7 @@ FarMenuItems::operator()(const Functor& functor)
 }
 
 inline
-LanguageString::LanguageString(int id)
+LanguageString::LanguageString(intptr_t id)
 : id_(id)
 {
 }
@@ -218,7 +218,7 @@ inline
 intptr_t
 FarManager::inputBox(const GUID* id,
 	const wchar_t* title, const wchar_t* prompt, const wchar_t* history,
-	const wchar_t* srcText, wchar_t* destText, int destLength,
+	const wchar_t* srcText, wchar_t* destText, size_t destLength,
 	const wchar_t* help,
 	DWORD flags)
 {
@@ -265,7 +265,7 @@ inline
 intptr_t
 FarManager::dialog(const GUID* id,
 	FarDialogItem* items, size_t itemCount,
-	int width, int height,
+	intptr_t width, intptr_t height,
 	const wchar_t* help)
 {
 	HANDLE hDlg = DialogInit(&PluginId, id,
@@ -281,7 +281,7 @@ inline
 intptr_t
 FarManager::dialogEx(const GUID* id,
 	FarDialogItem* items, size_t itemCount,
-	int width, int height,
+	intptr_t width, intptr_t height,
 	const wchar_t* help,
 	FARWINDOWPROC dlgProc)
 {
@@ -297,7 +297,7 @@ FarManager::dialogEx(const GUID* id,
 inline
 HANDLE FarManager::dialogInit(const GUID* id,
 		FarDialogItem* items, size_t itemCount,
-		int width, int height,
+		intptr_t width, intptr_t height,
 		const wchar_t* help)
 {
 	return DialogInit(&PluginId, id,
@@ -321,7 +321,7 @@ FarManager::dialogFree(HANDLE hDlg)
 
 inline
 std::wstring
-FarManager::getDlgItemText(HANDLE hDlg, int id)
+FarManager::getDlgItemText(HANDLE hDlg, intptr_t id)
 {
 	FarGetDialogItem DialogItem = {sizeof(FarGetDialogItem)};
 	DialogItem.Size = SendDlgMessage(hDlg, DM_GETDLGITEM, id, 0);
@@ -349,7 +349,7 @@ FarManager::defDlgProc(HANDLE hDlg, intptr_t Msg, intptr_t Param1, void *Param2)
 
 inline
 const wchar_t*
-FarManager::getMsg(int id) const
+FarManager::getMsg(intptr_t id) const
 {
 	return GetMsg(&PluginId, id);
 }

@@ -3,9 +3,9 @@
 
 #include "plugin.hpp"
 
-const int DEFAULT = -1;
-const int CURRENT_LINE = -1;
-const int END_LINE = -1;
+const intptr_t DEFAULT = -1;
+const intptr_t CURRENT_LINE = -1;
+const intptr_t END_LINE = -1;
 
 enum SubFileFormat {
 	FF_SSA,

@@ -78,7 +78,7 @@ public:
 	void setEndTime(LONGLONG time);
 
 	bool mainMenu();
-	int processEditorInput(const INPUT_RECORD& rec);
+	intptr_t processEditorInput(const INPUT_RECORD& rec);
 };
 
 #endif

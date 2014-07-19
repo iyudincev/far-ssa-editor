@@ -1,0 +1,59 @@
+.Language=Italian,Italiano
+//---=[ FAR Configuration by Keen The Warrior of SuPeRmEgA (17/08/2013) ]=---
+//---=[ Plugin 2.4.3.0 ]=--------------------=[ Versione 3.0 build 3616 ]=---
+// Main menu
+"Editor Sottotitoli SSA"
+"&Attacca         "
+"&Pausa"
+"&Vai a           "
+"Ricarica In Player"
+"F&rase           "
+"St&ile           "
+"&Tempo           "
+// Attach menu
+"Attacca"
+"Stacca"
+// Seek menu
+"Spostamento"
+"&Inizio Frase"
+"&Fine Frase"
+"Frame &Precedente"
+"Frame &Seguente"
+"&Personalizzato..."
+// Seek dialog
+"Spostamento"
+"Vai al punto"
+// Phrase menu
+"Frase"
+"&Edita..."
+"&Taglia Sequenzialmente"
+"Ta&glia Simultaneamente"
+"&Ritaglia"
+"Sistema &Overlay"
+"Muovi &Su"
+"Muovi &Giu"
+// Style menu
+"Stile"
+"Definizione Stile Non Trovata"
+// Timing menu
+"Tempo"
+"Imposta &Inizio Frase"
+"Imposta &Fine Frase"
+"S&posta           "
+"&Durata..."
+// Timing|Shift
+"Sposta"
+"&Frase Corrente..."
+"&Selezione..."
+"&Ricorda..."
+"&Intero Script..."
+// Shift/Duration dialog
+"Sposta"
+"Durata"
+"Sposta &Di"
+"Cambia D&i"
+"&Orario Inizio"
+"O&rario Fine"
+"&Durata"
+"&Origine"
+"&Corrente"
